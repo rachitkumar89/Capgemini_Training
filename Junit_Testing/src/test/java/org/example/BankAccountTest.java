@@ -1,0 +1,27 @@
+package org.example;
+
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class BankAccountTest {
+    @Test
+    public void testDeposit(){
+        BankAccount account = new BankAccount(100);
+        account.deposit(50);
+        assertEquals(150,account.getBalnce());
+    }
+
+    @Test
+    public void testWithdrawSuccess(){
+        BankAccount account = new BankAccount(100);
+        account.withdraw(50);
+        assertEquals(50,account.getBalnce());
+    }
+    @Test
+     public  void testWithdrawInsufficientFunds() {
+        BankAccount account = new BankAccount(100);
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(200));
+    }
+}
