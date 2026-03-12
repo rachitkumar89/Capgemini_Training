@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="book1" class="dependencyInje.Book">
+        <property name="book_id" value="1"/>
+        <property name="name" value="Spring in Action"/>
+    </bean>
+    <bean id="book2" class="dependencyInje.Book">
+        <property name="book_id" value="2"/>
+        <property name="name" value="Java"/>
+    </bean>
+    <bean id="book3" class="dependencyInje.Book">
+        <property name="book_id" value="3"/>
+        <property name="name" value="Python"/>
+    </bean>
+
+    <bean id="library1" class="dependencyInje.Library1">
+        <property name="id" value="1"/>
+        <property name="name" value="City Library"/>
+        <property name="books">
+            <list>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+                <ref bean="book3"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
